@@ -62,7 +62,7 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements ITic
 			long demand = maxPower * watts / 2000;
 
 			beam = 0;
-			
+			/*
 			if(joules > 0 || prev > 0) {
 
 				if(tank.getFluidAmount() >= 20) {
@@ -71,7 +71,7 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements ITic
 					world.setBlockState(pos, Blocks.FLOWING_LAVA.getDefaultState());
 					return;
 				}
-			}
+			}*/
 			
 			if(isOn) {
 				

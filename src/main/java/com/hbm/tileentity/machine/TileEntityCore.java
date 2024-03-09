@@ -97,7 +97,7 @@ public class TileEntityCore extends TileEntityMachineBase implements ITickable {
 			}
 			
 			if(heat > 0){
-				radiation();
+				//radiation();
 			}
 			
 			NBTTagCompound data = new NBTTagCompound();
@@ -155,7 +155,7 @@ public class TileEntityCore extends TileEntityMachineBase implements ITickable {
 				if(!(Library.isObstructed(world, pos.getX() + 0.5, pos.getY() + 0.5 + 6, pos.getZ() + 0.5, e.posX, e.posY + e.getEyeHeight(), e.posZ))){
 					if(!isPlayer || (isPlayer && !((EntityPlayer)e).capabilities.isCreativeMode))
 						e.attackEntityFrom(ModDamageSource.ams, this.heat * 100);
-					e.setFire(3);
+					e.setFire(1);
 				}
 			}
 			if(isPlayer){
@@ -217,7 +217,7 @@ public class TileEntityCore extends TileEntityMachineBase implements ITickable {
 		demand = (int)(getCoreFuel() * demand * fuelMod);
 		
 		//check if the reaction has enough valid fuel
-		if(tanks[0].getFluidAmount() < demand || tanks[1].getFluidAmount() < demand)
+		if(tanks[0].getFluidAmount() < 0 || tanks[1].getFluidAmount() < 0)
 			return joules;
 		
 		heat += (int)(getCoreHeat() * heatMod * Math.ceil((double)joules / 10000D));
@@ -225,8 +225,8 @@ public class TileEntityCore extends TileEntityMachineBase implements ITickable {
 		Fluid f1 = tanks[0].getFluid().getFluid();
 		Fluid f2 = tanks[1].getFluid().getFluid();
 
-		tanks[0].drain(demand, true);
-		tanks[1].drain(demand, true);
+		//tanks[0].drain(demand, true);
+		//tanks[1].drain(demand, true);
 
 		long powerOutput = (long) Math.max(0, (powerMod * joules * getCorePower() * FluidTypeHandler.getDFCEfficiency(f1) * FluidTypeHandler.getDFCEfficiency(f2)) + powerAbs);
 		if(powerOutput > 0 && heat == 0)

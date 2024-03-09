@@ -50,7 +50,7 @@ public class TileEntityCoreReceiver extends TileEntityMachineBase implements ITi
 				power += joules * 5000L;
 
 			this.sendPower(world, pos);
-
+/*
 			if(joules > 0) {
 
 				if(tank.getFluidAmount() >= 20) {
@@ -60,7 +60,7 @@ public class TileEntityCoreReceiver extends TileEntityMachineBase implements ITi
 					return;
 				}
 			}
-
+*/
 			syncJoules = joules;
 			
 			joules = 0;

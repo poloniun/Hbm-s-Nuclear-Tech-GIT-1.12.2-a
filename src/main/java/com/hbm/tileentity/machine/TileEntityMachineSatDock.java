@@ -103,7 +103,7 @@ public class TileEntityMachineSatDock extends TileEntity implements ITickable {
 
 				Satellite sat = data.getSatFromFreq(freq);
 
-				int delay = 10 * 60 * 1000; //10min
+				int delay = 3 * 60 * 1000; //3min
 
 				if(sat != null && sat instanceof SatelliteMiner) {
 
@@ -121,7 +121,7 @@ public class TileEntityMachineSatDock extends TileEntity implements ITickable {
 					}
 				}
 				if(sat != null && sat instanceof SatelliteHorizons) {
-					
+
 					SatelliteHorizons gerald = (SatelliteHorizons)sat;
 
 					if(gerald.lastOp + delay < System.currentTimeMillis()) {
@@ -217,12 +217,13 @@ public class TileEntityMachineSatDock extends TileEntity implements ITickable {
 	private WeightedRandomObject[] cargoGerald = new WeightedRandomObject[] { 
 		new WeightedRandomObject(new ItemStack(ModItems.powder_meteorite, 12), 128),
 		new WeightedRandomObject(new ItemStack(ModItems.powder_plutonium, 4), 64), 
-		new WeightedRandomObject(new ItemStack(ModItems.powder_combine_steel, 6), 64), 
-		new WeightedRandomObject(new ItemStack(ModItems.powder_tektite, 16), 32), 
+		new WeightedRandomObject(new ItemStack(ModItems.powder_combine_steel, 6), 64),
+		new WeightedRandomObject(new ItemStack(ModItems.powder_tektite, 8), 32), 
 		new WeightedRandomObject(new ItemStack(ModItems.powder_tantalium, 1), 16),
 		new WeightedRandomObject(new ItemStack(ModItems.powder_schrabidium, 1), 8),
 		new WeightedRandomObject(new ItemStack(ModItems.powder_bismuth, 1), 4),
-		new WeightedRandomObject(new ItemStack(ModItems.powder_radspice, 1), 1)
+		new WeightedRandomObject(new ItemStack(ModItems.powder_radspice, 1), 1),
+		new WeightedRandomObject(new ItemStack(ModItems.powder_osmiridium, 1), 1)
 	};
 
 	private void addToInv(ItemStack stack){
