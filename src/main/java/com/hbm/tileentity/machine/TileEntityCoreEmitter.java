@@ -78,8 +78,8 @@ public class TileEntityCoreEmitter extends TileEntityMachineBase implements ITic
 				//i.e. 50,000,000 HE = 10,000 SPK
 				//1 SPK = 5,000HE
 				
-				if(power >= demand) {
-					power -= demand;
+				if(power >= 0) {
+					//power -= demand;
 					long add = watts * 100;
 					if(add > Long.MAX_VALUE-joules)
 						joules = Long.MAX_VALUE;
